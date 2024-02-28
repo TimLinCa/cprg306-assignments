@@ -14,7 +14,7 @@ export default function Page() {
 
     return (
         <main>
-            <h1 class="m-2">Shopping List</h1>
+            <h1 className="m-2">Shopping List</h1>
             <NewItem onAddItem={handleAddItem}></NewItem>
             <ItemList items={items}></ItemList>
         </main>

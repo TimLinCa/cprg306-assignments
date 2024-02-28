@@ -1,7 +1,7 @@
 import Item from "./item";
 import { useState } from "react";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
     const [sortBy, setsortBy] = useState("Name");
 
     let sortedItems = [];
@@ -37,7 +37,7 @@ export default function ItemList({ items }) {
                             <ui className="list-none">
                                 {
                                     sortedItems[category].map(item => (
-                                        <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category}></Item>
+                                        <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} onSelect={onItemSelect}></Item>
                                     ))
                                 }
                             </ui>
@@ -48,7 +48,7 @@ export default function ItemList({ items }) {
                 {
                     (sortBy !== "groupByCategory" &&
                         sortedItems.map(item => (
-                            <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category}></Item>
+                            <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} onSelect={onItemSelect}></Item>
                         ))
                     )
                 }
